@@ -50,7 +50,8 @@ class Saxon extends Soldier {
 class War {
   vikingArmy = [];
   saxonArmy = [];
-
+  chooseVik = Math.floor(Math.random() * this.vikingArmy.length);
+  chooseSax = Math.floor(Math.random() * this.saxonArmy.length);
   addViking(Viking) {
     this.vikingArmy.push(Viking);
   }
@@ -60,8 +61,6 @@ class War {
   }
 
   vikingAttack() {
-    this.chooseVik = Math.floor(Math.random() * this.vikingArmy.length);
-    this.chooseSax = Math.floor(Math.random() * this.saxonArmy.length);
     let dead = this.saxonArmy[this.chooseSax].receiveDamage(
       this.vikingArmy[this.chooseVik].attack()
     );
@@ -72,8 +71,6 @@ class War {
   }
 
   saxonAttack() {
-    this.chooseVik = Math.floor(Math.random() * this.vikingArmy.length);
-    this.chooseSax = Math.floor(Math.random() * this.saxonArmy.length);
     let dead = this.vikingArmy[this.chooseVik].receiveDamage(
       this.saxonArmy[this.chooseSax].attack()
     );
